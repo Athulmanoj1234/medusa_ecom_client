@@ -4,13 +4,12 @@ import React from 'react'
 import { LuChrome } from "react-icons/lu";
 import { CiDollar } from "react-icons/ci";
 import { CiStar } from "react-icons/ci";
-import Link from 'next/link';
-import { LiaBuyNLarge } from 'react-icons/lia';
 import { useProductMenu } from '../store';
 import { ProductInfoResponse } from '../query/products/products.types';
 import { publishableApiKey, serverUrl } from '../contants';
+import Link from 'next/link';
 
-const Productbannerdetail = ({ id, description, title, ratings, price, fabricare, product_image, product_colors, product_sizes }: ProductInfoResponse) => {
+const Productbannerdetail = ({ description, title, ratings, price, fabricare, product_image, product_colors, product_sizes }: ProductInfoResponse) => {
 
     const isMenuClicked = useProductMenu(state => state.isMenuClicked);
     console.log(isMenuClicked);
@@ -48,8 +47,8 @@ const Productbannerdetail = ({ id, description, title, ratings, price, fabricare
                     <p className='lg:w-[22px] lg:h-[20px] text-gray-700 md:w-[22px] md:h-[20px] font-normal text-[14px] leading-[20px] tracking-[0%] max-sm:w-[22px] max-sm:h-[20px] max-sm:text-[14px] max-sm:leading-[20px] max-sm:tracking-[0]'>{ratings}</p>
                     <div className='lg:w-[104px] lg:h-[20px] lg:pl-[4px] md:w-[104px] md:h-[20px] md:pl-[4px] max-sm:w-[104px] max-sm:h-[20px] max-sm:pl-[4px] max-sm:ml-1 max-sm:mt-[1px]'>
                         <div className='lg:w-[100px] lg:h-[20px] lg:flex lg:gap-[1px] lg:mt-[2px] md:w-[100px] md:h-[20px] md:flex md:gap-[1px] max-sm:w-[100px] max-sm:h-[20px] max-sm:flex max-sm:gap-[1px] '>
-                        { Array.from(Array(ratings), (e, i) => 
-                            <CiStar className='text-yellow-400 lg:w-[16.63px] lg:h-[15.91px] lg:mt-[2.3px] lg:ml-[1.68px] md:w-[16.63px] md:h-[15.91px] md:mt-[2.3px] md:ml-[1.68px] max-sm:w-[16.63px] max-sm:h-[15.91px] max-sm:top-[2.3px] max-sm:left-[1.68px]' />
+                        { Array.from(Array(ratings), (i) => 
+                            <CiStar key={i}  className='text-yellow-400 lg:w-[16.63px] lg:h-[15.91px] lg:mt-[2.3px] lg:ml-[1.68px] md:w-[16.63px] md:h-[15.91px] md:mt-[2.3px] md:ml-[1.68px] max-sm:w-[16.63px] max-sm:h-[15.91px] max-sm:top-[2.3px] max-sm:left-[1.68px]' />
                         )}
                         </div>
                     </div> 
@@ -69,8 +68,8 @@ const Productbannerdetail = ({ id, description, title, ratings, price, fabricare
                 <div className='lg:w-[488px] lg:h-[60px] lg:flex lg:flex-col lg:gap-[8px] md:w-[624px] md:h-[60px] md:flex md:flex-col md:gap-[8px] max-sm:flex max-sm:flex-col max-sm:gap-[8px]'>
                     <h2 className='lg:w-[488px] lg:h-[20px] text-gray-900 font-medium text-[14px] leading-[20px] tracking-[0] flex items-center md:w-[624px] md:h-[20px] md:text-[14px] md:leading-[20px] md:tracking-[0] md:flex md:items-center max-sm:w-[358px] max-sm:h-[20px] max-sm:text-sm max-sm:leading-[20px] max-sm:align-middle'>Color</h2>
                     <div className='lg:w-[488px] lg:h-[32px] lg:flex lg:gap-[7px] md:w-[624px] md:h-[32px] md:flex md:gap-[15px] max-sm:w-[358px] max-sm:h-[32px] max-sm:flex max-sm:gap-[12px]'>
-                        { product_colors?.map((color) => 
-                        <div className='lg:w-[36px] lg:h-[36px] lg:-top-[-2px] lg:-left-[-2px] lg:rounded-[9999px] lg:p-[2px] bg-[#FFFFFF01] shadow-[0px_0px_0px_2px_#111827] md:w-[36px] md:h-[36px] md:-top-[2px] md:-left-[2px] md:rounded-full md:p-[2px] max-sm:w-[36px] max-sm:h-[36px] max-sm:rounded-full max-sm:p-[2px]' > 
+                        { product_colors?.map((color, index) => 
+                        <div className='lg:w-[36px] lg:h-[36px] lg:-top-[-2px] lg:-left-[-2px] lg:rounded-[9999px] lg:p-[2px] bg-[#FFFFFF01] shadow-[0px_0px_0px_2px_#111827] md:w-[36px] md:h-[36px] md:-top-[2px] md:-left-[2px] md:rounded-full md:p-[2px] max-sm:w-[36px] max-sm:h-[36px] max-sm:rounded-full max-sm:p-[2px]' key={index} > 
                             <input type="radio" style={{ backgroundColor: `${color}` }} className={`lg:w-[32px] lg:h-[32px] lg:rounded-[9999px] lg:border border-[#0000001A] appearance-none md:w-[32px] md:h-[32px] md:rounded-full md:border max-sm:w-[32px] max-sm:h-[32px] max-sm:rounded-full max-sm:border-[1px]`}/>
                         </div>
                         )}
@@ -82,8 +81,8 @@ const Productbannerdetail = ({ id, description, title, ratings, price, fabricare
                         <Link href={''} className='lg:w-[108px] lg:h-[20px] md:w-[108px] md:h-[20px] max-sm:w-[108px] max-sm:h-[20px]'><p className='lg:w-[108px] lg:h-[20px] text-indigo-600 font-medium lg:text-[14px] lg:leading-[20px] lg:tracking-[0] lg:align-middle md:text-[14px] md:leading-[20px] md:tracking-[0] md:flex md:items-center max-sm:text-sm max-sm:leading-5 max-sm:align-middle'>See sizing chart</p></Link>
                     </div>
                     <div className='lg:w-[488px] lg:h-[46px] lg:flex lg:gap-[12px] md:w-[624px] md:h-[46px] md:flex md:gap-[12px] max-sm:w-[358px] max-sm:h-[104px] max-sm:grid max-sm:grid-rows-2 max-sm:grid-cols-3 max-sm:place-content-between max-sm:gap-3'>
-                    { product_sizes?.map((size) => (
-                        <div className='border-gray-200 border-[1px] lg:px-[16px] py-[9px] md:py-[13px] md:px-[33.17px] max-sm:text-center max-sm:pt-2'>{size}</div>
+                    { product_sizes?.map((size, index) => (
+                        <div className='border-gray-200 border-[1px] lg:px-[16px] py-[9px] md:py-[13px] md:px-[33.17px] max-sm:text-center max-sm:pt-2' key={index}>{size}</div>
                     ))}    
                     </div>
                 </div>

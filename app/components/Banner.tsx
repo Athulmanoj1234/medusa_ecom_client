@@ -1,6 +1,5 @@
 "use client"
 import React from 'react';
-import { useMainMenu } from '../store';
 
 const Banner = () => {
   //  const isMainMenuClicked = useMainMenu(state => state.isMainMenuClicked);

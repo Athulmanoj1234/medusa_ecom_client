@@ -1,4 +1,3 @@
-import { userInfo } from 'os';
 import { create } from 'zustand';
 import { publishableApiKey, serverUrl } from './contants';
 
@@ -12,10 +11,10 @@ interface MainState {
     handleMainMenuClicked: () => void;
 }
 
-interface UserProfileState {
-    getuserProfile: () => void;
-    userInfo: {},
-}
+// interface UserProfileState {
+//     getuserProfile: () => void;
+//     userInfo: {},
+// }
 
 export const useProductMenu = create<MenuState>((set) => ({
         isMenuClicked: false,

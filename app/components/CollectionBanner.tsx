@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import React from 'react'
 import Collectioncard from './Collectioncard';
 import collectioncard from '../sampleapis/Collectioncarddata.json'
@@ -11,7 +10,7 @@ const CollectionBanner = () => {
       <p className='text-gray-500 md:font-inter md:font-bold md:text-[16px] md:leading-[32px] md:tracking-[-0.6px] md:align-middle max-sm:font-normal max-sm:text-[16px] max-sm:leading-[24px] max-sm:tracking-normal'>each sesson, we collaborate with world class designers to create a collection inspired by the natural world.</p>
       <div className='flex lg:flex-row md:flex-col md:mt-[20px] lg:w-full md:w-full md:h-[1396px] md:gap-[48px] md:mr-[100px] md:items-center max-sm:h-[1075px] max-sm:mt-[20px] max-sm:flex-col max-sm:gap-[48px] max-sm:w-[400px] lg:justify-between'>
         {collectioncard?.map((collection, index) => (
-         <Collectioncard 
+         <Collectioncard key={index} 
            title={collection.title}
            imageUrl={collection.image}
            description={collection.description}

@@ -9,6 +9,13 @@ export interface UserInfo {
     password: string;
 }
 
+export interface EventValues {
+  target: {
+    name: string;
+    value: string;
+  }
+}
+
 const Registeruser = () => {
 
     const initialUserInfoState = {
@@ -19,7 +26,7 @@ const Registeruser = () => {
     
         const [userInfo, setUserInfo] = useState<UserInfo>(initialUserInfoState); 
         
-        const handleChange = (e: any) => {
+        const handleChange = (e: EventValues) => {
             const { name, value } = e.target;
             setUserInfo({...userInfo, [name]: value});
         }

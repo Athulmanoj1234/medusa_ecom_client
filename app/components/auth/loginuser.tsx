@@ -1,7 +1,6 @@
 "use client"
 
 import React, {useEffect, useState}  from 'react'
-import { UserInfo } from './registeruser';
 import { userAction } from '@/app/store';
 import { publishableApiKey, serverUrl } from '@/app/contants';
 
@@ -10,6 +9,14 @@ export interface LoginUserInfo {
     email?: string | null;
     password: string;
 }
+
+// export interface UserActionState {
+//     userProfileState: () => Promise<any>;
+//     userInfo: {
+//         username: string;
+//         password: string;
+//     },
+// }
 
 const Loginuser = () => {
     
@@ -21,8 +28,8 @@ const Loginuser = () => {
             const [userInfo, setUserInfo] = useState<LoginUserInfo>(initialUserInfoState);
             const [userProfile, setUserProfile] = useState({}); 
 
-            const userProfileState = userAction((state) => state?.userProfileState);
-            const userData = userAction((state) => state?.userInfo);
+            const userProfileState = userAction((state: any) => state?.userProfileState);
+            const userData = userAction((state: any) => state?.userInfo);
 
             console.log(userData);
     
@@ -58,7 +65,7 @@ const Loginuser = () => {
                 console.log(userRegisterResponse);
             }
 
-            console.log("userProfile check", userProfile.username == "" ? 'nothing' : userProfile.username);
+            console.log("userProfile check", userProfile?.username == "" ? 'nothing' : userProfile?.username);
 
             const userInfoUsername = userProfile.username == "";
 

@@ -11,7 +11,7 @@ import { useProductMenu } from '../store';
 const ProductHeader = () => {
 
     const handleMenuClicked = useProductMenu(state => state.handleMenuClicked);
-    const isMenuClicked = useProductMenu(state => state.isMenuClicked);
+    // const isMenuClicked = useProductMenu(state => state.isMenuClicked);
   
 
   return (

@@ -1,7 +1,8 @@
 import { publishableApiKey, serverUrl } from "@/app/contants";
 import { ProductInfoResponse } from "./products.types";
+import { ParamValue } from "next/dist/server/request/params";
 
-export async function getProductById(id: string): Promise<ProductInfoResponse> {
+export async function getProductById(id: ParamValue): Promise<ProductInfoResponse> {
 
     const res = await fetch(`${serverUrl}/store/getproduct/${id}`, {
         headers: {

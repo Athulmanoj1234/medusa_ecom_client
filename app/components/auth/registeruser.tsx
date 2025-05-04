@@ -1,4 +1,5 @@
 "use client"
+
 import { publishableApiKey, serverUrl } from '@/app/contants';
 import React, {useState} from 'react'
 
@@ -18,6 +19,11 @@ export interface EventValues {
 
 const Registeruser = () => {
 
+    const backendServerUrl = serverUrl;
+    const serverPublishableApiKey = publishableApiKey;
+
+    console.log("backend:", backendServerUrl, "api key:", serverPublishableApiKey);
+
     const initialUserInfoState = {
             username: "",
             email: "",
@@ -35,11 +41,11 @@ const Registeruser = () => {
             e.preventDefault();
             console.log(userInfo);
             //registering customers
-            const res = await fetch(`${serverUrl}/store/ecom-users/register`, {
+            const res = await fetch(`${backendServerUrl}/store/ecom-users/register`, {
                 method: 'POST',
                 headers: {
                     "content-type": "application/json",
-                    "x-publishable-api-key": publishableApiKey!,
+                    "x-publishable-api-key": serverPublishableApiKey!,
                 },
                 body: JSON.stringify(userInfo),
             });

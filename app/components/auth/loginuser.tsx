@@ -1,7 +1,7 @@
 "use client"
 
 import React, {useEffect, useState}  from 'react'
-import { userAction } from '@/app/store';
+import { userAction, UserProfileStateInfo } from '@/app/store';
 import { publishableApiKey, serverUrl } from '@/app/contants';
 import { EventValues } from './registeruser';
 
@@ -25,7 +25,7 @@ const Loginuser = () => {
             }
         
             const [userInfo, setUserInfo] = useState<LoginUserInfo>(initialUserInfoState);
-            const [userProfile, setUserProfile] = useState<UserProfileState>(); 
+            const [userProfile, setUserProfile] = useState<UserProfileStateInfo>(); 
 
             const userProfileState = userAction((state) => state?.userProfileState);
             const userData = userAction((state) => state?.userInfo);
@@ -34,7 +34,7 @@ const Loginuser = () => {
     
             useEffect(() => {
                 async function fetchProfile() {
-                    const userProfile = await userProfileState() as UserProfileState;
+                    const userProfile = await userProfileState();
                     setUserProfile(userProfile);
                 }
                 fetchProfile();

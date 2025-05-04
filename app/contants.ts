@@ -1,5 +1,3 @@
+export const serverUrl = process.env.NEXT_PUBLIC_SERVER_URL;
+export const publishableApiKey = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_API_KEY;
 
-const serverUrl = process.env.SERVER_URL;
-const publishableApiKey = process.env.MEDUSA_PUBLISHABLE_API_KEY;
-
-export { serverUrl, publishableApiKey }

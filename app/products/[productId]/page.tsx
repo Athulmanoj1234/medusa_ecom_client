@@ -1,23 +1,41 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import ProductHeader from '@/app/productpagecomponents/Productheader'
 import Productpagefooter from '@/app/productpagecomponents/Productpagefooter'
 import ProductBanner from '@/app/productpagecomponents/ProductBanner'
 import { getProductById } from '@/app/query/products/action'
+import { useParams } from 'next/navigation'
+import { ProductInfoResponse } from '@/app/query/products/products.types'
 
-async function page({ params }: { params: { productId: string } }) {
-    
-    const { productId } = await params;
-    const productDetails = await getProductById(productId);
+export interface PageProps {
+  params: {
+    productId: string
+  }
+}
+
+function Page() {
+    const params = useParams();
+    const productId = params.productId;
+
+    const [productDetails, setProductDetails] = useState<ProductInfoResponse>();
+
+    useEffect(() => {
+      async function fetchUserInfo() {
+        const productDetails = await getProductById(productId);
+        setProductDetails(productDetails);
+      }
+      fetchUserInfo();
+    })
     console.log("productInfodetails", productDetails);
 
 
   return (
     <div className='overflow-hidden'>
         <ProductHeader />
-        <ProductBanner productDetails = {productDetails} />
+        <ProductBanner productDetails = {productDetails!} />
         <Productpagefooter />
     </div>
   )
 }
 
-export default page
+export default Page

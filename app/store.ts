@@ -11,10 +11,18 @@ interface MainState {
     handleMainMenuClicked: () => void;
 }
 
-// interface UserProfileState {
-//     getuserProfile: () => void;
-//     userInfo: {},
-// }
+interface UserProfileState {
+    userProfileState: () => Promise<UserProfileStateInfo>;
+    userInfo: {
+        id: string;
+        username: string;
+    },
+}
+
+export interface UserProfileStateInfo {
+    id: string;
+    username: string;
+}
 
 export const useProductMenu = create<MenuState>((set) => ({
         isMenuClicked: false,
@@ -31,8 +39,11 @@ export const useMainMenu = create<MainState>
         }))      
 }))
 
-export const userAction = create((set) => ({
-    userInfo: {},
+export const userAction = create<UserProfileState>((set) => ({
+    userInfo: {
+        id: "",
+        username: "",
+    },
     userProfileState: async () => {
         const res = await fetch(`${serverUrl}/store/ecom-users/profile`, {
             credentials: "include",
@@ -41,7 +52,7 @@ export const userAction = create((set) => ({
                 "x-publishable-api-key": publishableApiKey!,
             }
         })
-        const userProfile = await res.json();
+        const userProfile = await res.json() as UserProfileStateInfo;
         console.log("userInfo", userProfile);
         //set((state: any) => ({ userInfo: userProfile }))
         await set({ userInfo: userProfile });

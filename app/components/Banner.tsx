@@ -16,10 +16,10 @@ const Banner = () => {
         <span>The new arrivals have , well, newly arrived. Check out the latest options from our </span>
         <span className='md:hidden lg:hidden'>from our </span>
         <br className='lg:hidden'/>
-        <span className='lg:ml-20 md:hidden lg:block'>summer smal-batch release while they're still in stock.</span>
-        <span className='lg:hidden md:block ml-7'>from our summer smal-batch release while they're still in stock.</span>
+        <span className='lg:ml-20 md:hidden lg:block'>{`summer smal-batch release while they'are still in stock.`}</span>
+        <span className='lg:hidden md:block ml-7'>{`from our summer smal-batch release while they're still in stock.`}</span>
       </p>
-      <p className='lg:hidden md:hidden max-sm:block text-xl'>The new arrivals have , well, newly <br /><span className='ml-4'>arrived. Check out the latest</span><br /><span className='ml-2'>options from our summer small-</span><br /><span className='ml-1'>batch release while they're still in </span><br /><span className='ml-30'/>stock.</p>
+      <p className='lg:hidden md:hidden max-sm:block text-xl'>{`The new arrivals have , well, newly `}<br /><span className='ml-4'>arrived. Check out the latest</span><br /><span className='ml-2'>{`options from our summer small-`}</span><br /><span className='ml-1'>{`batch release while they're still in `}</span><br /><span className='ml-30'/>stock.</p>
       <button className='text-black bg-white py-2 px-8 rounded-lg md:px-18 md:py-6 max-sm:px-6 max-sm:text-xl md:text-3xl lg:text-xl lg:px-9 lg:py-3 lg:mt-2'>Shop New Arrivals</button>
     </div>
     

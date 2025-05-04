@@ -10,13 +10,11 @@ export interface LoginUserInfo {
     password: string;
 }
 
-// export interface UserActionState {
-//     userProfileState: () => Promise<any>;
-//     userInfo: {
-//         username: string;
-//         password: string;
-//     },
-// }
+export interface UserProfileState {
+    username: string;
+    password: string;
+}
+
 
 const Loginuser = () => {
     
@@ -26,20 +24,20 @@ const Loginuser = () => {
             }
         
             const [userInfo, setUserInfo] = useState<LoginUserInfo>(initialUserInfoState);
-            const [userProfile, setUserProfile] = useState({}); 
+            const [userProfile, setUserProfile] = useState<UserProfileState>(); 
 
-            const userProfileState = userAction((state: any) => state?.userProfileState);
-            const userData = userAction((state: any) => state?.userInfo);
+            const userProfileState = userAction((state) => state?.userProfileState);
+            const userData = userAction((state) => state?.userInfo);
 
             console.log(userData);
     
             useEffect(() => {
                 async function fetchProfile() {
-                    const userProfile = await userProfileState();
+                    const userProfile = await userProfileState() as UserProfileState;
                     setUserProfile(userProfile);
                 }
                 fetchProfile();
-            }, []);
+            }, [userProfileState]);
             
             console.log(userProfile);
 
@@ -67,18 +65,18 @@ const Loginuser = () => {
 
             console.log("userProfile check", userProfile?.username == "" ? 'nothing' : userProfile?.username);
 
-            const userInfoUsername = userProfile.username == "";
+            const userInfoUsername = userProfile?.username == "";
 
             console.log(userInfoUsername);
   return (
         <div className='flex justify-center items-center h-screen'>
             { userProfile?.username && ( 
                 <div>already logined</div> ) } 
-                { !userProfile.username && (
+                { !userProfile?.username && (
                     <form action="">
                     <input type="text" placeholder='username' name='username' onChange={handleChange} />
                     <input type="password" placeholder='password' name='password' onChange={handleChange} />
-                    <button className='bg-blue-600 p-3' onClick={handleRegister}>register</button>
+                    <button className='bg-blue-600 p-3' onClick={handleRegister}>login</button>
                 </form>
                 )}
                 

@@ -1,0 +1,6 @@
+[
+    { "image": "related-products.jpeg", "title": "Basic Tee", "price": "$35", "color": "Aspen White" },
+    { "image": "basic-tee2.jpeg", "title": "Basic Tee", "price":"$35", "color": "Charcoal" },
+    { "image": "artwork-tee.jpeg", "title": "Artwork Tee", "price": "$35", "color": "Iso Dots" },
+    { "image": "basic-tee-2black.jpeg", "title": "Basic Tee", "price": "$35", "color": "Black" }
+]

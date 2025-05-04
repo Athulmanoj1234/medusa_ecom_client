@@ -1,0 +1,9 @@
+[
+    { "index": 1, "title": "New arrivals", "image": "/shop-by-category.jpeg" },
+    { "index": 2, "title": "Clothing", "image": "/shop-by-category2.jpeg" },
+    { "index": 3, "title": "Accessories", "image": "/shop-by-category3.jpeg" },
+    { "index": 4, "title": "Footwear", "image": "/shop-by-category4.jpeg" },
+    { "index": 5, "title": "Beauty", "image": "/shop-by-category5.jpeg" },
+    { "index": 6, "title": "Home", "image": "/shop-by-category.jpeg" },
+    { "index": 7, "title": "Electronics", "image": "/shop-by-category.jpeg" }
+  ]

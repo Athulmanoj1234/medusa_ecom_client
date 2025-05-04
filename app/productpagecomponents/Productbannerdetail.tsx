@@ -124,7 +124,7 @@ const Productbannerdetail = ({ description, title, ratings, price, fabricare, pr
                         </div>
                         {/* details */}
                         <div className='lg:w-[182px] lg:h-[20px] lg:pr-[13.08px] lg:pl-[13.06px] md:w-[250px] md:h-[20px] md:pr-[47.08px] md:pl-[47.06px] max-sm:w-full max-sm:max-w-[308px] max-sm:h-auto max-sm:pr-[76.08px] max-sm:pl-[76.06px]'>
-                            <p className='lg:w-[156px] lg:h-[20px] text-gray-500 lg:font-normal lg:text-[14px] lg:leading-[20px] lg:tracking-[0] lg:text-center lg:flex lg:items-center lg:justify-center md:text-[14px] md:leading-[20px] md:tracking-[0] md:text-center max-sm:text-[14px] max-sm:leading-[20px] max-sm:tracking-[0%] max-sm:text-center max-sm:align-middle'>Don't look at other tees</p>
+                            <p className='lg:w-[156px] lg:h-[20px] text-gray-500 lg:font-normal lg:text-[14px] lg:leading-[20px] lg:tracking-[0] lg:text-center lg:flex lg:items-center lg:justify-center md:text-[14px] md:leading-[20px] md:tracking-[0] md:text-center max-sm:text-[14px] max-sm:leading-[20px] max-sm:tracking-[0%] max-sm:text-center max-sm:align-middle'>{`Don't look at other tees`}</p>
                         </div>
                     </div>
                 </section>

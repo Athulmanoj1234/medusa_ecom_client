@@ -3,6 +3,7 @@
 import React, {useEffect, useState}  from 'react'
 import { userAction } from '@/app/store';
 import { publishableApiKey, serverUrl } from '@/app/contants';
+import { EventValues } from './registeruser';
 
 export interface LoginUserInfo {
     username: string;
@@ -41,7 +42,7 @@ const Loginuser = () => {
             
             console.log(userProfile);
 
-            const handleChange = (e: any) => {
+            const handleChange = (e: EventValues) => {
                 const { name, value } = e.target;
                 setUserInfo({...userInfo, [name]: value});
             }

@@ -6,6 +6,7 @@ import ProductBanner from '@/app/productpagecomponents/ProductBanner'
 import { getProductById } from '@/app/query/products/action'
 import { useParams } from 'next/navigation'
 import { ProductInfoResponse } from '@/app/query/products/products.types'
+import { useLoading } from '@/app/store'
 
 export interface PageProps {
   params: {
@@ -18,21 +19,34 @@ function Page() {
     const productId = params.productId;
 
     const [productDetails, setProductDetails] = useState<ProductInfoResponse>();
+    const [isLoading, setLoading] = useState(true);
+
+    const stopLoading = useLoading(state => state.stopLoading);
 
     useEffect(() => {
       async function fetchUserInfo() {
         const productDetails = await getProductById(productId);
         setProductDetails(productDetails);
+        stopLoading();
       }
       fetchUserInfo();
-    })
+      
+    }, [productId]);
     console.log("productInfodetails", productDetails);
 
 
   return (
     <div className='overflow-hidden'>
         <ProductHeader />
-        <ProductBanner productDetails = {productDetails!} />
+        {/* { isLoading && ( 
+        <div>
+          loading...
+        </div>
+        ) } */}
+        
+          <ProductBanner productDetails = {productDetails!} 
+          />
+        
         <Productpagefooter />
     </div>
   )

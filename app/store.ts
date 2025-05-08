@@ -19,6 +19,11 @@ interface UserProfileState {
     },
 }
 
+interface LoadingState {
+    isLoading: boolean;
+    stopLoading: () => void;
+}
+
 export interface UserProfileStateInfo {
     id: string;
     username: string;
@@ -58,4 +63,11 @@ export const userAction = create<UserProfileState>((set) => ({
         await set({ userInfo: userProfile });
         return userProfile;
     }
+}))
+
+export const useLoading = create<LoadingState>((set) => ({
+    isLoading: true,
+    stopLoading: () => set((state) => ({
+        isLoading: false,
+    }))
 }))

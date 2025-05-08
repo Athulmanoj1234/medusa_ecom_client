@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 const Productbannerdetail = ({ description, title, ratings, price, fabricare, product_image, product_colors, product_sizes }: ProductInfoResponse) => {
 
-    const isMenuClicked = useProductMenu((state: any) => state.isMenuClicked);
+    const isMenuClicked = useProductMenu((state) => state.isMenuClicked);
     console.log(isMenuClicked);
 
   return (

@@ -4,14 +4,14 @@ import React from 'react'
 import { LuChrome } from "react-icons/lu";
 import { CiDollar } from "react-icons/ci";
 import { CiStar } from "react-icons/ci";
-import { useLoading, useProductMenu } from '../store';
+import {  useProductMenu } from '../store';
 import { ProductInfoResponse } from '../query/products/products.types';
-import { publishableApiKey, serverUrl } from '../contants';
+import { serverUrl } from '../contants';
 import Link from 'next/link';
 
 const Productbannerdetail = ({ description, title, ratings, price, fabricare, product_image, product_colors, product_sizes }: ProductInfoResponse) => {
 
-    const isMenuClicked = useProductMenu(state => state.isMenuClicked);
+    const isMenuClicked = useProductMenu((state: any) => state.isMenuClicked);
     console.log(isMenuClicked);
 
   return (
@@ -117,8 +117,8 @@ const Productbannerdetail = ({ description, title, ratings, price, fabricare, pr
             </div>
         </div>
     </div>
-) 
-
+ ) 
+//   <div className='lg:w-[488px] lg:h-[886.98px] lg:mt-16 lg:ml-[728px] lg:pt-8'></div>
 }
 
 export default Productbannerdetail;

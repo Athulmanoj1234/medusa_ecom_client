@@ -19,8 +19,6 @@ function Page() {
     const productId = params.productId;
 
     const [productDetails, setProductDetails] = useState<ProductInfoResponse>();
-    const [isLoading, setLoading] = useState(true);
-
     const stopLoading = useLoading(state => state.stopLoading);
 
     useEffect(() => {
@@ -38,15 +36,8 @@ function Page() {
   return (
     <div className='overflow-hidden'>
         <ProductHeader />
-        {/* { isLoading && ( 
-        <div>
-          loading...
-        </div>
-        ) } */}
-        
           <ProductBanner productDetails = {productDetails!} 
           />
-        
         <Productpagefooter />
     </div>
   )

@@ -67,7 +67,7 @@ export const userAction = create<UserProfileState>((set) => ({
 
 export const useLoading = create<LoadingState>((set) => ({
     isLoading: true,
-    stopLoading: () => set((state) => ({
+    stopLoading: () => set(() => ({
         isLoading: false,
     }))
 }))

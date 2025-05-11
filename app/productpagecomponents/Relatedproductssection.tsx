@@ -36,9 +36,9 @@ const Relatedproductssection =  ({productId}: {productId: string}) => {
       <h2 className='lg:w-full lg:h-28px font-medium text-[18px] leading-[28px] tracking-[0%] align-middle text-gray-900 md:w-full md:h-[28px] md:text-[18px] md:leading-[28px] md:tracking-[0%] md:align-middle max-sm:w-[358px] max-sm:h-[28px] max-sm:text-[18px] max-sm:leading-[28px] max-sm:tracking-[0%] max-sm:align-middle'>Customers also purchased</h2>
       <div className='lg:w-full lg:h-[380.5px] lg:flex lg:justify-between md:w-full md:h-[760px] md:grid md:grid-cols-2 md:grid-rows-2  md:gap-x-8 md:gap-y-[100px] max-sm:flex max-sm:flex-col max-sm:gap-[40px] max-sm:w-[358px] max-sm:h-[1794px] max-sm:ml-[20px]'>
       { relatedProductsInfo?.slice(0, 5).map((product: ProductInfoResponse, index) => (
-      <button onClick={() => handleProductVisit(product?.id)}>  
+      <button onClick={() => handleProductVisit(product?.id)}
+      key={index}>  
         <Relatedproductscard 
-          key={index}
           id={product.id}
           title={product.title}
           product_image={product.product_image}

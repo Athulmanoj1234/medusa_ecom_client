@@ -38,7 +38,6 @@ const Relatedproductssection =  ({productId}: {productId: string}) => {
       { relatedProductsInfo?.slice(0, 5).map((product: ProductInfoResponse, index) => (
       <button onClick={() => handleProductVisit(product?.id)}>  
         <Relatedproductscard 
-          key={index}
           id={product.id}
           title={product.title}
           product_image={product.product_image}

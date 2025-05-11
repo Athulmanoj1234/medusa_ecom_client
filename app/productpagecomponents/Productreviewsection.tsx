@@ -22,4 +22,4 @@ const Productreviewsection = () => {
             )
 }
 
-            export default Productreviewsection
+export default Productreviewsection

@@ -9,7 +9,7 @@ export interface RelatedProductsData {
     color: string;
 }
 
-const Relatedproductscard = ({ title, product_image, price, product_colors }: ProductInfoResponse) => {
+const Relatedproductscard = ({ title, product_image, price }: ProductInfoResponse) => {
   return (
     <div className='lg:w-[280px] lg:h-[380.5px] lg:flex lg:flex-col lg:gap-[16px]  md:w-[300px] md:h-[360.5px] md:flex md:flex-col md:gap-[16px] max-sm:w-[358px] max-sm:h-[418.5px] max-sm:flex max-sm:flex-col max-sm:gap-[16px]'>
             <div className='lg:w-full lg:h-[320px] lg:rounded-[6px] md:w-[300px] md:h-[300px] md:rounded-[6px] max-sm:w-full max-sm:h-[358px] max-sm:rounded-[6px]'>

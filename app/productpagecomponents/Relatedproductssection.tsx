@@ -1,10 +1,8 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import Relatedproductscard from './Relatedproductscard'
-import relatedProductsData from '../sampleapis/Ralatedproductsdata.json'
 import { getRelatedProducts } from '../query/products/action';
 import { ProductInfoResponse } from '../query/products/products.types';
-import Link from 'next/link';
 import { clientUrl } from '../contants';
 
 const Relatedproductssection =  ({productId}: {productId: string}) => {
